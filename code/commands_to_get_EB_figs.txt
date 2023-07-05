@@ -1,0 +1,3 @@
+circo ptree_leuven.dot -Tsvg -o ptree_leuven.svg
+
+circo ptree_oxford.dot -Tsvg -o ptree_oxford.svg
