@@ -38,7 +38,7 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
 
     brainAgeGap_adjusted = abs(predError_adjusted);
 
-    BrainAGER_rec = brainAgeGap_adjusted;
+    BrainAgeGap_rec = brainAgeGap_adjusted;
 
     %% get subject-level data from recording-level data
 
@@ -50,7 +50,7 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
 
     num_subjects = length(subjectID_unique);
 
-    BrainAGER_subj_all = zeros(num_subjects, 1);
+    BrainAgeGap_subj_all = zeros(num_subjects, 1);
 
     bsid_subj = strings(num_subjects, 1);
 
@@ -63,16 +63,16 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
         subj_idx = find(strcmp(subj, subjectID));
 
         if strcmp(robust_indicator, "no")
-            BrainAGER_subj = mean(BrainAGER_rec(subj_idx));
+            BrainAgeGap_subj = mean(BrainAgeGap_rec(subj_idx));
         elseif strcmp(robust_indicator, "yes")
-            BrainAGER_subj = median(BrainAGER_rec(subj_idx));
+            BrainAgeGap_subj = median(BrainAgeGap_rec(subj_idx));
         end
 
         bsid = unique(bsid_recording(subj_idx));
 
-        numRecordings = length(BrainAGER_rec(subj_idx));
+        numRecordings = length(BrainAgeGap_rec(subj_idx));
 
-        BrainAGER_subj_all(subj_counter) = BrainAGER_subj;
+        BrainAgeGap_subj_all(subj_counter) = BrainAgeGap_subj;
 
         bsid_subj(subj_counter) = bsid;
 
@@ -82,7 +82,7 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
 
     idx = cat(1, find(strcmp(bsid_subj, 'Normal')), find(strcmp(bsid_subj, 'Mild')), find(strcmp(bsid_subj, 'Severe')));
 
-    BrainAGER_subj_all = BrainAGER_subj_all(idx);
+    BrainAgeGap_subj_all = BrainAgeGap_subj_all(idx);
 
     Group = bsid_subj(idx);
 
@@ -98,7 +98,7 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
     design_matrix = cat(2, design_matrix_ev1_norm_mean, design_matrix_ev2_mild_mean, design_matrix_ev3_sev_mean, design_matrix_ev4_rec_count);
     t_contrast_matrix_ttests = [-1,1,0,0; -1,0,1,0; 0,-1,1,0];
 
-    writematrix(BrainAGER_subj_all, 'tmp_i.csv');
+    writematrix(BrainAgeGap_subj_all, 'tmp_i.csv');
     writematrix(design_matrix, 'tmp_d.csv');
     writematrix(t_contrast_matrix_ttests, 'tmp_t.csv');
 
@@ -122,13 +122,13 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
 
         results_brainAgeGap_leuven.NORM_num_subjects = sum(strcmp(Group, 'Normal'));
         results_brainAgeGap_leuven.NORM_num_recordings = sum(Recordings(strcmp(Group, 'Normal')));
-        results_brainAgeGap_leuven.NORM_mae = mean(BrainAGER_subj_all(strcmp(Group, 'Normal')));
+        results_brainAgeGap_leuven.NORM_mae = mean(BrainAgeGap_subj_all(strcmp(Group, 'Normal')));
         results_brainAgeGap_leuven.MILD_num_subjects = sum(strcmp(Group, 'Mild'));
         results_brainAgeGap_leuven.MILD_num_recordings = sum(Recordings(strcmp(Group, 'Mild')));
-        results_brainAgeGap_leuven.MILD_mae = mean(BrainAGER_subj_all(strcmp(Group, 'Mild')));
+        results_brainAgeGap_leuven.MILD_mae = mean(BrainAgeGap_subj_all(strcmp(Group, 'Mild')));
         results_brainAgeGap_leuven.SEV_num_subjects = sum(strcmp(Group, 'Severe'));
         results_brainAgeGap_leuven.SEV_num_recordings = sum(Recordings(strcmp(Group, 'Severe')));
-        results_brainAgeGap_leuven.SEV_mae = mean(BrainAGER_subj_all(strcmp(Group, 'Severe')));
+        results_brainAgeGap_leuven.SEV_mae = mean(BrainAgeGap_subj_all(strcmp(Group, 'Severe')));
 
         results_brainAgeGap_leuven.pairwise_ttest_NORMvsMILD_cope = readmatrix('tmp_dat_cope_c1.csv');
         results_brainAgeGap_leuven.pairwise_ttest_NORMvsMILD_tstat = readmatrix('tmp_dat_tstat_c1.csv');
@@ -152,13 +152,13 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
 
         results_brainAgeGap_ROB_leuven.NORM_num_subjects = sum(strcmp(Group, 'Normal'));
         results_brainAgeGap_ROB_leuven.NORM_num_recordings = sum(Recordings(strcmp(Group, 'Normal')));
-        results_brainAgeGap_ROB_leuven.NORM_mae = mean(BrainAGER_subj_all(strcmp(Group, 'Normal')));
+        results_brainAgeGap_ROB_leuven.NORM_mae = mean(BrainAgeGap_subj_all(strcmp(Group, 'Normal')));
         results_brainAgeGap_ROB_leuven.MILD_num_subjects = sum(strcmp(Group, 'Mild'));
         results_brainAgeGap_ROB_leuven.MILD_num_recordings = sum(Recordings(strcmp(Group, 'Mild')));
-        results_brainAgeGap_ROB_leuven.MILD_mae = mean(BrainAGER_subj_all(strcmp(Group, 'Mild')));
+        results_brainAgeGap_ROB_leuven.MILD_mae = mean(BrainAgeGap_subj_all(strcmp(Group, 'Mild')));
         results_brainAgeGap_ROB_leuven.SEV_num_subjects = sum(strcmp(Group, 'Severe'));
         results_brainAgeGap_ROB_leuven.SEV_num_recordings = sum(Recordings(strcmp(Group, 'Severe')));
-        results_brainAgeGap_ROB_leuven.SEV_mae = mean(BrainAGER_subj_all(strcmp(Group, 'Severe')));
+        results_brainAgeGap_ROB_leuven.SEV_mae = mean(BrainAgeGap_subj_all(strcmp(Group, 'Severe')));
 
         results_brainAgeGap_ROB_leuven.pairwise_ttest_NORMvsMILD_cope = readmatrix('tmp_dat_cope_c1.csv');
         results_brainAgeGap_ROB_leuven.pairwise_ttest_NORMvsMILD_tstat = readmatrix('tmp_dat_tstat_c1.csv');
@@ -184,7 +184,7 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
 
     dabestr_df = table(Group);
 
-    dabestr_df.BrainAGER = BrainAGER_subj_all;
+    dabestr_df.BrainAgeGap = BrainAgeGap_subj_all;
 
     if strcmp(robust_indicator, "no")
         file_name = strcat(input_folder, 'data_dabestrDF_leuven.csv');

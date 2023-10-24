@@ -295,12 +295,12 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
         ax.LineWidth = line_width;
 
         if strcmp(input_file, 'data_leuven.csv')
-            fig_file_name = strcat(output_folder, 'results_agePrediction_scatterPlot_leuven.png');
+            fig_file_name = strcat(output_folder, 'results_agePrediction_scatterPlot_leuven.pdf');
         elseif strcmp(input_file, 'data_oxford.csv')
-            fig_file_name = strcat(output_folder, 'results_agePrediction_scatterPlot_oxford.png');
+            fig_file_name = strcat(output_folder, 'results_agePrediction_scatterPlot_oxford.pdf');
         end
 
-        saveas(gcf, fig_file_name)
+        exportgraphics(gcf,fig_file_name)
 
     end
 
