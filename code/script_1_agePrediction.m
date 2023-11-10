@@ -250,9 +250,12 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
 
         axis_limits = [25, 50];
 
-        rgb_normal = [229,39,45] / 255;
-        rgb_mild = [69,133,188] / 255;
-        rgb_severe = [88,179,85] / 255;
+        % rgb_normal = [229,39,45] / 255;
+        % rgb_mild = [69,133,188] / 255;
+        % rgb_severe = [88,179,85] / 255;
+        rgb_normal = [59,117,175] / 255;
+        rgb_mild = [241,159,94] / 255;
+        rgb_severe = [118,178,105] / 255;
         rgb_oxford = [152,78,163] / 255;
         c = zeros(length(T.group), 3);
 
