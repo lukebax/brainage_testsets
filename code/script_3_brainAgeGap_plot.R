@@ -10,17 +10,19 @@ shared_control.mean_diff <- mean_diff(shared_control)
 shared_controlROB.mean_diff <- mean_diff(shared_controlROB)
 
 dabest_plot(shared_control.mean_diff,
-            swarm_label = "Brain Age Gap",
-            swarm_x_text = 13,
-            contrast_x_text = 13,
+            swarm_label = "Brain Age Gap (weeks)",
+            contrast_label = "Mean difference (weeks)",
+            swarm_x_text = 12,
+            contrast_x_text = 12,
             swarm_ylim = c(0, 2.7),
             contrast_ylim = c(-0.6, 1.5),
             custom_palette = "d3")
 
 dabest_plot(shared_controlROB.mean_diff,
-            swarm_label = "Brain Age Gap",
-            swarm_x_text = 13,
-            contrast_x_text = 13,
+            swarm_label = "Brain Age Gap (weeks)",
+            contrast_label = "Mean difference (weeks)",
+            swarm_x_text = 12,
+            contrast_x_text = 12,
             swarm_ylim = c(0, 2.7),
             contrast_ylim = c(-0.6, 1.5),
             custom_palette = "d3")

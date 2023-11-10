@@ -24,6 +24,10 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
 
         output_folder = '../results/';
 
+        if ~exist(output_folder, 'dir')
+            mkdir(output_folder)
+        end
+
         T = readtable(strcat(input_folder, input_file));
 
         %%
