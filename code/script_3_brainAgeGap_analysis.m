@@ -131,14 +131,17 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
         results_brainAgeGap_leuven.SEV_mae = mean(BrainAgeGap_subj_all(strcmp(Group, 'Severe')));
 
         results_brainAgeGap_leuven.pairwise_ttest_NORMvsMILD_cope = readmatrix('tmp_dat_cope_c1.csv');
+        results_brainAgeGap_leuven.pairwise_ttest_NORMvsMILD_cohen = readmatrix('tmp_dat_cohen_c1.csv');
         results_brainAgeGap_leuven.pairwise_ttest_NORMvsMILD_tstat = readmatrix('tmp_dat_tstat_c1.csv');
         results_brainAgeGap_leuven.pairwise_ttest_NORMvsMILD_tstat_pval = readmatrix('tmp_dat_tstat_cfwep_c1.csv');
 
         results_brainAgeGap_leuven.pairwise_ttest_NORMvsSEV_cope = readmatrix('tmp_dat_cope_c2.csv');
+        results_brainAgeGap_leuven.pairwise_ttest_NORMvsSEV_cohen = readmatrix('tmp_dat_cohen_c2.csv');
         results_brainAgeGap_leuven.pairwise_ttest_NORMvsSEV_tstat = readmatrix('tmp_dat_tstat_c2.csv');
         results_brainAgeGap_leuven.pairwise_ttest_NORMvsSEV_tstat_pval = readmatrix('tmp_dat_tstat_cfwep_c2.csv');
 
         results_brainAgeGap_leuven.pairwise_ttest_MILDvsSEV_cope = readmatrix('tmp_dat_cope_c3.csv');
+        results_brainAgeGap_leuven.pairwise_ttest_MILDvsSEV_cohen = readmatrix('tmp_dat_cohen_c3.csv');
         results_brainAgeGap_leuven.pairwise_ttest_MILDvsSEV_tstat = readmatrix('tmp_dat_tstat_c3.csv');
         results_brainAgeGap_leuven.pairwise_ttest_MILDvsSEV_tstat_pval = readmatrix('tmp_dat_tstat_cfwep_c3.csv');
 
@@ -161,14 +164,17 @@ for robust_indicator_counter = 1 : length(robust_indicator_list)
         results_brainAgeGap_ROB_leuven.SEV_mae = mean(BrainAgeGap_subj_all(strcmp(Group, 'Severe')));
 
         results_brainAgeGap_ROB_leuven.pairwise_ttest_NORMvsMILD_cope = readmatrix('tmp_dat_cope_c1.csv');
+        results_brainAgeGap_ROB_leuven.pairwise_ttest_NORMvsMILD_cohen = readmatrix('tmp_dat_cohen_c1.csv');
         results_brainAgeGap_ROB_leuven.pairwise_ttest_NORMvsMILD_tstat = readmatrix('tmp_dat_tstat_c1.csv');
         results_brainAgeGap_ROB_leuven.pairwise_ttest_NORMvsMILD_tstat_pval = readmatrix('tmp_dat_tstat_cfwep_c1.csv');
 
         results_brainAgeGap_ROB_leuven.pairwise_ttest_NORMvsSEV_cope = readmatrix('tmp_dat_cope_c2.csv');
+        results_brainAgeGap_ROB_leuven.pairwise_ttest_NORMvsSEV_cohen = readmatrix('tmp_dat_cohen_c2.csv');
         results_brainAgeGap_ROB_leuven.pairwise_ttest_NORMvsSEV_tstat = readmatrix('tmp_dat_tstat_c2.csv');
         results_brainAgeGap_ROB_leuven.pairwise_ttest_NORMvsSEV_tstat_pval = readmatrix('tmp_dat_tstat_cfwep_c2.csv');
 
         results_brainAgeGap_ROB_leuven.pairwise_ttest_MILDvsSEV_cope = readmatrix('tmp_dat_cope_c3.csv');
+        results_brainAgeGap_ROB_leuven.pairwise_ttest_MILDvsSEV_cohen = readmatrix('tmp_dat_cohen_c3.csv');
         results_brainAgeGap_ROB_leuven.pairwise_ttest_MILDvsSEV_tstat = readmatrix('tmp_dat_tstat_c3.csv');
         results_brainAgeGap_ROB_leuven.pairwise_ttest_MILDvsSEV_tstat_pval = readmatrix('tmp_dat_tstat_cfwep_c3.csv');
 
